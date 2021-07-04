@@ -5,8 +5,9 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "strict": false,
     "noImplicitReturns": true,
+    "strictNullChecks": false,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
@@ -14,6 +15,12 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "paths": {
+      "rng-dynamics": [
+        "dist/rng-dynamic/rng-dynamics",
+        "dist/rng-dynamics"
+      ]
+    },
     "target": "es2017",
     "module": "es2020",
     "lib": [

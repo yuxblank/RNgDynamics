@@ -1,7 +1,42 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "24ba60b1-18e0-4adb-aa95-0d4b636b66d8"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "RNgDynamics": {
+      "projectType": "library",
+      "root": "projects/rng-dynamics",
+      "sourceRoot": "projects/rng-dynamics/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/rng-dynamics/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rng-dynamics/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/rng-dynamics/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rng-dynamics/src/test.ts",
+            "tsConfig": "projects/rng-dynamics/tsconfig.spec.json",
+            "karmaConfig": "projects/rng-dynamics/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "RNgDynamics"
 }
