@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/yuxblank/RNgDynamics/badge.svg?branch=master)](https://coveralls.io/github/yuxblank/RNgLogger?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/yuxblank/RNgDynamics/badge.svg?branch=master)](https://coveralls.io/github/yuxblank/RNgDynamics?branch=master)
 
 # RNgDynamics
 RNgDynamics is library for consuming Modules dynamically within your Angular Applications.
