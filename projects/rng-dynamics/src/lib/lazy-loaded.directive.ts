@@ -15,7 +15,7 @@ export class LazyLoadedDirective implements OnInit{
   }
 
   ngOnInit(): void {
-    this.dynamicModuleLoader.getLazyFactory(
+    this.dynamicModuleLoader.getComponentFactory(
       this.component, this.vc.injector
     )
       .pipe(

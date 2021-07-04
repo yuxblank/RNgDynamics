@@ -20,7 +20,7 @@ describe("DynamicModuleLoaderService", () => {
 
     let service: DynamicModuleLoaderService = TestBed.get(DynamicModuleLoaderService);
 
-    service.getLazyFactory("lazyComp", TestBed.get(Injector))
+    service.getComponentFactory("lazyComp", TestBed.get(Injector))
       .subscribe(next => {
         expect(next.componentType).toBe(LazyComponent);
         done();
@@ -31,28 +31,38 @@ describe("DynamicModuleLoaderService", () => {
 
     let service: DynamicModuleLoaderService = TestBed.get(DynamicModuleLoaderService);
 
-    service.getLazyFactory(LazyComponent, TestBed.get(Injector))
+    service.getComponentFactory(LazyComponent, TestBed.get(Injector))
       .subscribe(next => {
         expect(next.componentType).toBe(LazyComponent);
         done();
       })
   });
 
-  it("should throw error when component is not registered", () => {
+  it("should throw error when component is not registered by string", () => {
 
     let service: DynamicModuleLoaderService = TestBed.get(DynamicModuleLoaderService);
 
-    class MyType {}
+    class MyType {
+    }
 
-    expect(() => {
-      service.getLazyFactory("lazyCompX", TestBed.get(Injector))
-        .subscribe(next => {})
-    }).toThrow();
-    expect(() => {
-      service.getLazyFactory(MyType, TestBed.get(Injector))
-        .subscribe(next => {})
-    }).toThrow();
+    service.getComponentFactory("lazyCompX", TestBed.get(Injector))
+      .subscribe(next => {
+      }, error => {
+        expect(error).toBeDefined();
+      })
+  });
+  it("should throw error when component is not registered by type", () => {
 
+    let service: DynamicModuleLoaderService = TestBed.get(DynamicModuleLoaderService);
+
+    class MyType {
+    }
+
+    service.getComponentFactory(MyType, TestBed.get(Injector))
+      .subscribe(next => {
+      }, error => {
+        expect(error).toBeDefined()
+      })
   });
 
 
