@@ -9,7 +9,9 @@
     "test-coverage": "ng test --code-coverage --browsers=ChromeHeadless",
     "test": "ng test"
   },
-  "private": true,
+  "author": "Yuri Blanc",
+  "description": "Angular Dynamic modules and components @runtime!",
+  "private": false,
   "dependencies": {
     "@angular/animations": "~12.1.1",
     "@angular/common": "~12.1.1",

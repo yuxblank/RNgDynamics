@@ -1,11 +1,19 @@
 {
   "name": "rng-dynamics",
-  "version": "0.0.1",
+  "version": "12.0.1",
   "peerDependencies": {
     "@angular/common": "^12.1.1",
     "@angular/core": "^12.1.1"
   },
+  "author": "Yuri Blanc",
+  "description": "Angular Dynamic modules and components @runtime!",
+  "license": "MIT",
+  "keywords": ["angular","angular dynamic", "angular lazy loading", "dynamic modules", "angular runtime dynamic"],
   "dependencies": {
     "tslib": "^2.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuxblank/RNgLogger.git"
   }
 }
