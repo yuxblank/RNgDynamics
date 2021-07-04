@@ -30,7 +30,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/rng-dynamics/src/test.ts",
+            "main": "projects/rng-dynamics/test/test.ts",
             "tsConfig": "projects/rng-dynamics/tsconfig.spec.json",
             "karmaConfig": "projects/rng-dynamics/karma.conf.js"
           }
