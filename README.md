@@ -16,7 +16,7 @@ A lazy loaded module once loaded is cached in memory, so the application will no
 
 - Lazy load modules and components without Angular Router
 - Project lazy loaded components using a simple directive `rngLazyLoaded`
-0- Modules and components are cached in memory (optionally Module Factories can be non-cached)
+- Modules and components are cached in memory (optionally Module Factories can be non-cached)
 - Load lazy components by type or by a named key string you define
 - Create endlessly lazy-loading capabilities in your Angular applications and libraries by wiring your own lazy loading logic
 
