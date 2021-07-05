@@ -26,7 +26,7 @@ export class DynamicModuleLoaderService {
   }
 
 
-  getComponentFactory(component: Type<any> | string, parent: Injector, refresh = false): Observable<ComponentFactory<any>> {
+  getComponentFactory(component: Type<any> | string, parent: Injector, cached = true): Observable<ComponentFactory<any>> {
 
     return of(this.dynamicModules)
       .pipe(
@@ -85,7 +85,7 @@ export class DynamicModuleLoaderService {
               })
             );
 
-          if (def.dynamicModuleDef.ref && !refresh){
+          if (def.dynamicModuleDef.ref && cached){
             return this.resolveComponentFactory(def.dynamicModuleDef, def.componentType)
           }
           return lazyLoad;

@@ -97,7 +97,7 @@ describe("DynamicModuleLoaderService", () => {
     service.getComponentFactory(LazyComponent, newInjector)
       .pipe(
         mergeMap(lazy => {
-          return combineLatest(of(lazy),service.getComponentFactory(LazyComponent, rootInjector, true));
+          return combineLatest(of(lazy),service.getComponentFactory(LazyComponent, rootInjector, false));
         }),
       )
       .subscribe(([first, second]) => {

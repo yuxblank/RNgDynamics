@@ -22,7 +22,7 @@ export class RNgDynamicModule {
       ngModule: RNgDynamicModule,
       providers: [
         {provide: RNG_DYNAMIC_MODULES, multi: true, useValue: dynamics}
-      ]
+     ]
     }
   }
 }

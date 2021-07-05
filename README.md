@@ -12,6 +12,67 @@ Lazy loaded components can be projected by the built-in directive `rngLazyLoaded
 A lazy loaded module once loaded is cached in memory, so the application will not load it twice.
 
 
+## Features
+
+- Lazy load modules and components without Angular Router
+- Project lazy loaded components using a simple directive `rngLazyLoaded`
+- Cached modules and components that once loaded are kept in memory. (optionally can be non-cached)
+- Load lazy components by type of by a named key string you define
+- Create endlessly lazy-loading capabilities in your Angular applications or libraries by wiring your own lazy loading logic
+
+
+## Usage
+
+First of all create a Module to be lazy loaded without importing it into the others modules or RootModule.
+
+Then define the `RNgDynamicModuleDef` for your module to be registered within RNgDynamics as follows:
+```typescript
+const RNG_DYNAMICS : RNgDynamicModules<LazyModule> = [
+  {
+    components: {lazyComponent: LazyComponent}, // all the components associated with the Module
+    import: () => import("./lazy/lazy.module").then(m => m.LazyModule) // use import and resolve the module type
+  }
+]
+```
+
+Then register the `RNgDynamicModules<T>` array to the `RNgDynamicModule` using the `forRoot` method.
+ 
+```typescript
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    RNgLoggerModule,
+    RNgDynamicModule.forRoot(RNG_DYNAMICS) // register dynamics
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+You can use the `RNgDynamicModule.forRoot` in any module multiple times, the configurations are compacted by the library.
+
+Now just define an element you want to proxy in your Components, as follows:
+
+```html
+ <ng-container rngLazyLoaded="lazyComponent"></ng-container>
+```
+
+or by supplying the type:
+```typescript
+@Component({
+    selector: "my-component",
+    template: `<ng-container [rngLazyLoaded]="myLazyComp"></ng-container>`
+})
+export class MyComponent {
+    myLazyComp = LazyComponent
+}
+```
+
+That's enough, your LazyComponent is ready to be lazy-loaded!****
+
 
 ## Known Limitations
 Actually the library only supports lazy loading from modules available at build time using the loading callback:
