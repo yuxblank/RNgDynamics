@@ -16,6 +16,17 @@ export class TestComponent {
   lazy = LazyComponent
 }
 
+
+@Component({
+  selector: "test-comp2-view",
+  template: `
+    <ng-container *rngLazyLoaded="lazy"></ng-container>
+  `
+})
+export class TestComponent2 {
+  lazy = "unknown"
+}
+
 describe("LazyLoadedDirective", () => {
   beforeEach(() => {
 
@@ -38,9 +49,8 @@ describe("LazyLoadedDirective", () => {
       expect(nativeElement.textContent).toEqual("I'm lazy!")
       done();
     }, 2000)
-
-
-
   });
+
+
 
 })

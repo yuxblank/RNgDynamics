@@ -2,9 +2,6 @@ import {ModuleWithProviders, NgModule} from '@angular/core';
 import {DynamicModuleLoaderService} from "./dynamic-module-loader.service";
 import {RNG_DYNAMIC_MODULES, RNgDynamicModules} from "./rng-dynamics.api";
 import { LazyLoadedDirective } from './lazy-loaded.directive';
-
-
-
 @NgModule({
   declarations: [
     LazyLoadedDirective

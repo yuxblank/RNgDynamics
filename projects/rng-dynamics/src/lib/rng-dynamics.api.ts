@@ -13,6 +13,7 @@ export type RNgDynamicModules<T> = RNgDynamicModuleDef<T>[];
 
 export interface RNgDynamicModuleRef<T> {
   def: RNgDynamicModuleDef<T>;
+  module?: Type<any>;
   ref?  : NgModuleRef<T>
 }
 
