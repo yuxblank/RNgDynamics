@@ -7,7 +7,8 @@
     "build": "ng build RNgDynamics",
     "watch": "ng build RNgDynamics --watch",
     "test-coverage": "ng test --code-coverage --browsers=ChromeHeadless",
-    "test": "ng test --browsers=ChromeHeadless"
+    "test": "ng test --browsers=ChromeHeadless",
+    "publish-npm": "npm run copy-docs && cd dist/rng-dynamics && npm publish"
   },
   "author": "Yuri Blanc",
   "description": "Angular Dynamic modules and components @runtime!",
