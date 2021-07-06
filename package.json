@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build RNgDynamics",
     "watch": "ng build RNgDynamics --watch",
+    "copy-docs": "cp README.md dist/rng-dynamics",
     "test-coverage": "ng test --code-coverage --browsers=ChromeHeadless",
     "test": "ng test --browsers=ChromeHeadless",
     "publish-npm": "npm run copy-docs && cd dist/rng-dynamics && npm publish"
